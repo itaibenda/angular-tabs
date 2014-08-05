@@ -31,6 +31,17 @@ describe('Directive: tabSet', function () {
     expect(element.find('ul.tabs-header li:eq(0)').text()).toBe('First Tab');
     expect(element.find('ul.tabs-header li:eq(1)').text()).toBe('moshe');
   }));
+
+  it('should display a tab by clicking its header', inject(function ($compile) {
+    element = angular.element('<tab-set><tab title="Tab 1">My Content</tab><tab title="Tab 2">Content 2</tab></tab-set>');
+    element = $compile(element)(scope);
+
+    scope.$digest();
+
+    expect(element.find('.tab.ng-hide').text()).toBe('Content 2');
+    element.find('.tabs-header li:eq(1)').click();
+    expect(element.find('.tab.ng-hide').text()).toBe('My Content');
+  }));
 });
 
 describe('Controller: TabSetCtrl', function () {

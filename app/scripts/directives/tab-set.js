@@ -31,7 +31,7 @@
       template: '' +
       '<div>' +
         '<ul class="tabs-header">' +
-          '<li ng-repeat="tab in tabs">{{tab.title}}</li>' +
+          '<li ng-repeat="tab in tabs" ng-click="tabSetCtrl.selectTab(tab)">{{tab.title}}</li>' +
         '</ul>' +
         '<div class="tab-content" ng-transclude>' +
         '</div>' +
